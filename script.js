@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const commentsContainer = document.querySelector('.comments');
   const comments = document.querySelectorAll('.comment');
+  let commentsArray = [];
 
   function addEventListenersToNums() {
     let nums = document.querySelectorAll('.num');
@@ -26,7 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
     addEventListenersToNums();
   }
 
-
   HTMLToNode(comments[0].innerHTML);
+  console.log(typeof comments[0].innerHTML);
+
+  comments.forEach((element, index, array) => {
+    let likes = document.querySelector(`.comment:nth-child(${index + 1}) .likes`)
+    console.log(likes.innerHTML);
+    let dislikes = document.querySelector(`.comment:nth-child(${index + 1}) .dislikes`)
+    console.log(dislikes.innerHTML);
+  })
 
 })
